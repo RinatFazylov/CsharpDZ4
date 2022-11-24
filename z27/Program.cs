@@ -5,24 +5,34 @@
 // 9012 -> 12
 
 Console.Write("Введите число N: ");
-int numberN = Convert.ToInt32(Console.ReadLine());
-
-int SumNumber(int numberN)
+int number = Convert.ToInt32(Console.ReadLine());
+number = Math.Abs (number);
+int Count(int num)
 {
-int count = Convert.ToString(numberN).Length;
-int advance = 0;
-int result = 0;
-for (int i = 0; i < count; i++)
-{
-advance = numberN - numberN % 10;
-result = result + (numberN - advance);
-numberN = numberN / 10;
+    int count1 = 0;
+    while (num != 0)
+    {
+        num = num / 10;
+        count1++;
+    }
+    return count1;
 }
-return result;
+int count = Count(number);
+int SumNumber(int num)
+{
+    int advance = 0;
+    int result = 0;
+    for (int i = 0; i < count; i++)
+    {
+        advance = num - num % 10;
+        result = result + (num - advance);
+        num = num / 10;
+    }
+    return result;
 }
 
-int sumNumber = SumNumber(numberN);
-Console.WriteLine("Сумма цифр в числе: " + sumNumber);
+int sumNumber = SumNumber(number);
+Console.WriteLine($"Сумма цифр в числе:  {sumNumber} ");
 
 
 
@@ -43,18 +53,18 @@ Console.WriteLine("Сумма цифр в числе: " + sumNumber);
 // int Num(int num)
 // {
 //     int sum = 0;
-//     int count = 10;
+//     int count1 = 10;
 //     int x = num;
 //     int result = 0;
 //     int sum1= 0;
-//     while ((num / count) > 0)     // 54321
+//     while ((num / count1) > 0)     // 54321
 //     {
-//         x = num % count;   // 1 2 
+//         x = num % count1;   // 1 2 
 //         while (x > 10)
 //         {
 //             x = x / 10;
 //         }
-//         count = count * 10;
+//         count1 = count1 * 10;
 //         sum = x + sum;
 //     }
 //         sum1 = num;
@@ -63,7 +73,7 @@ Console.WriteLine("Сумма цифр в числе: " + sumNumber);
 //             sum1 = sum1 / 10;
 //         }
 //         result = sum + sum1;
-    
+
 //     return result;
 // }
 
