@@ -5,9 +5,10 @@
 int[] array = new int[8];
 void FillArray(int[] arr)
 {
+   Random rnd = new Random();
     for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = new Random().Next(11, 77);
+        arr[i] = rnd.Next(11, 77);
     }
 }
 void PrintArray(int[] arr)
@@ -17,7 +18,7 @@ void PrintArray(int[] arr)
     {
         Console.Write($"{arr[i]}, ");
     }
-    Console.Write($"{arr[7]}");
+    Console.Write($"{arr[arr.Length -1]}");
     Console.Write("]");
 
 }
